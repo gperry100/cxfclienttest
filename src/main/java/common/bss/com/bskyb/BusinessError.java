@@ -45,6 +45,7 @@ public class BusinessError {
     @XmlElementRef(name = "Source", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class)
     protected JAXBElement<String> source;
 
+    int x;
     /**
      * Gets the value of the error property.
      * 
