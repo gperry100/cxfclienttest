@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml"
+	xmlns:data-mapper="http://www.mulesoft.org/schema/mule/ee/data-mapper"
+	xmlns:ws="http://www.mulesoft.org/schema/mule/ws" xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:cxf="http://www.mulesoft.org/schema/mule/cxf"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.6.1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/cxf http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd
+http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+
+	<http:request-config name="HTTP_Request_Configuration"
+		host="chiiis61.bskyb.com" port="902" doc:name="HTTP Request Configuration" />
+	<cxf:configuration name="CXF_Configuration"
+		enableMuleSoapHeaders="true" initializeStaticBusInstance="true"
+		doc:name="CXF Configuration" />
+	<mulexml:jaxb-context name="JAXB_Context"
+		packageNames="traffic.contract.bss.com.bskyb.request" doc:name="JAXB Context" />
+
+	<flow name="cxf-client-testFlow">
+		<http:inbound-endpoint host="localhost" port="8881"
+			path="cxftest" exchange-pattern="request-response" doc:name="HTTP"/>
+
+		<!-- <scripting:component doc:name="Script">
+			<scripting:script engine="Groovy"><![CDATA[
+            import traffic.contract.bss.com.bskyb.request.*;
+            
+			def get = new traffic.contract.bss.com.bskyb.request.ObjectFactory().createGet();
+			def arrayOfint = new com.microsoft.schemas._2003._10.serialization.arrays.ObjectFactory().createArrayOfint();
+			arrayOfint.getInt().add(5127944);
+			def arrayOfInts = new com.microsoft.schemas._2003._10.serialization.arrays.ObjectFactory().createArrayOfint(arrayOfint);
+			get.setMAMRequestID(arrayOfint);
+
+			payload = get;
+			]]></scripting:script>
+		</scripting:component> -->
+		
+		<mulexml:jaxb-xml-to-object-transformer returnClass="traffic.contract.bss.com.bskyb.request.Get" jaxbContext-ref="JAXB_Context" doc:name="XML to JAXB Object"/>
+		 
+		<cxf:jaxws-client doc:name="CXF"
+			enableMuleSoapHeaders="false"
+			clientClass="traffic.wcf.bss.com.bskyb.mamrequest.MAMRequest" port="BasicHttpBinding_IRequest"
+			operation="Get" wsdlLocation="classpath:schema/MAMRequest.wsdl">
+			<cxf:jaxb-databinding />
+		</cxf:jaxws-client>
+		<http:request config-ref="HTTP_Request_Configuration"
+			path="MAMRequest.svc" method="POST" doc:name="HTTP" />
+	</flow>
+</mule>
