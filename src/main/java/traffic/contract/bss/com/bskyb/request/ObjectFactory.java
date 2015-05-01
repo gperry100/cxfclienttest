@@ -30,14 +30,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link UpdateResponse }
-     * 
-     */
-    public UpdateResponse createUpdateResponse() {
-        return new UpdateResponse();
-    }
-
-    /**
      * Create an instance of {@link Update }
      * 
      */
@@ -59,6 +51,14 @@ public class ObjectFactory {
      */
     public Get createGet() {
         return new Get();
+    }
+
+    /**
+     * Create an instance of {@link UpdateResponse }
+     * 
+     */
+    public UpdateResponse createUpdateResponse() {
+        return new UpdateResponse();
     }
 
 }

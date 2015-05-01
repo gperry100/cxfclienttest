@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:json="http://www.mulesoft.org/schema/mule/json"
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:json="http://www.mulesoft.org/schema/mule/json"
 	xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml"
 	xmlns:data-mapper="http://www.mulesoft.org/schema/mule/ee/data-mapper"
 	xmlns:ws="http://www.mulesoft.org/schema/mule/ws" xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
@@ -16,7 +16,8 @@ http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mul
 http://www.mulesoft.org/schema/mule/ws http://www.mulesoft.org/schema/mule/ws/current/mule-ws.xsd
 http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schema/mule/ee/data-mapper/current/mule-data-mapper.xsd
 http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
-http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
 
 	<!-- <http:request-config name="HTTP_Request_Configuration"
 		host="chiiis61.bskyb.com" port="902" doc:name="HTTP Request Configuration" /> -->
@@ -29,6 +30,8 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
 		packageNames="traffic.contract.bss.com.bskyb.request" doc:name="JAXB Context" />
    
  	<ws:consumer-config name="Web_Service_Consumer" wsdlLocation="schema/MAMRequest.wsdl" service="MAMRequest" port="BasicHttpBinding_IRequest" serviceAddress="http://chiiis61.bskyb.com:902/MAMRequest.svc" doc:name="Web Service Consumer"/>
+    <data-mapper:config name="XML_To_Xml_Get_" transformationGraphPath="xml_to_xml_get_.grf" doc:name="XML_To_Xml_Get_"/>
+    <data-mapper:config name="Xml_GetResponse__To_XML" transformationGraphPath="xml_getresponse__to_xml.grf" doc:name="Xml_GetResponse__To_XML"/>
 
 	<flow name="cxf-client-testFlow">
 		<http:inbound-endpoint host="localhost" port="8881"
@@ -59,7 +62,7 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
 		<http:request config-ref="HTTP_Request_Configuration"
 			path="mamrequest" method="POST" doc:name="HTTP" />
 	</flow>
-    <flow name="cxf-client-testFlow1">        
+    <flow name="ws-consumer-testFlow">        
  		<http:inbound-endpoint host="localhost" port="8888"
 			path="wsconsumertest" exchange-pattern="request-response" doc:name="HTTP"/>
 			
@@ -84,5 +87,12 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
 		</scripting:component>
       
         <ws:consumer config-ref="Web_Service_Consumer" operation="Get" doc:name="Web Service Consumer" />
+    </flow>
+    <flow name="ws-consumer-DM-testFlow">
+        <http:inbound-endpoint host="localhost" port="8888"
+			path="wsconsumertestwithmapper" exchange-pattern="request-response" doc:name="HTTP"/>
+        <data-mapper:transform config-ref="XML_To_Xml_Get_" doc:name="XML To Xml&lt;Get&gt;"/>
+        <ws:consumer config-ref="Web_Service_Consumer" operation="Get" doc:name="Web Service Consumer"/>
+        <data-mapper:transform config-ref="Xml_GetResponse__To_XML" doc:name="Xml&lt;GetResponse&gt; To XML"/>
     </flow>
 </mule>
