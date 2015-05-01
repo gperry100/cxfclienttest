@@ -70,43 +70,43 @@ import javax.xml.datatype.XMLGregorianCalendar;
 })
 public class MAMRequest {
 
-    @XmlElementRef(name = "CreatedByUser", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class)
+    @XmlElementRef(name = "CreatedByUser", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class, required = false)
     protected JAXBElement<String> createdByUser;
-    @XmlElementRef(name = "DateCompleted", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class)
+    @XmlElementRef(name = "DateCompleted", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class, required = false)
     protected JAXBElement<XMLGregorianCalendar> dateCompleted;
-    @XmlElementRef(name = "DateRequired", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class)
+    @XmlElementRef(name = "DateRequired", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class, required = false)
     protected JAXBElement<XMLGregorianCalendar> dateRequired;
-    @XmlElementRef(name = "DateTimeAcceptedByMAM", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class)
+    @XmlElementRef(name = "DateTimeAcceptedByMAM", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class, required = false)
     protected JAXBElement<XMLGregorianCalendar> dateTimeAcceptedByMAM;
-    @XmlElementRef(name = "DateTimeCreated", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class)
+    @XmlElementRef(name = "DateTimeCreated", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class, required = false)
     protected JAXBElement<XMLGregorianCalendar> dateTimeCreated;
-    @XmlElementRef(name = "Deleted", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class)
+    @XmlElementRef(name = "Deleted", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class, required = false)
     protected JAXBElement<Boolean> deleted;
-    @XmlElementRef(name = "Format", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class)
+    @XmlElementRef(name = "Format", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class, required = false)
     protected JAXBElement<String> format;
-    @XmlElementRef(name = "GenericID", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class)
+    @XmlElementRef(name = "GenericID", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class, required = false)
     protected JAXBElement<Integer> genericID;
-    @XmlElementRef(name = "Level", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class)
+    @XmlElementRef(name = "Level", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class, required = false)
     protected JAXBElement<String> level;
-    @XmlElementRef(name = "MAMRequestID", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class)
+    @XmlElementRef(name = "MAMRequestID", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class, required = false)
     protected JAXBElement<Integer> mamRequestID;
-    @XmlElementRef(name = "NoOfOutgestItems", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class)
+    @XmlElementRef(name = "NoOfOutgestItems", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class, required = false)
     protected JAXBElement<Integer> noOfOutgestItems;
-    @XmlElementRef(name = "OutgestDestination", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class)
+    @XmlElementRef(name = "OutgestDestination", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class, required = false)
     protected JAXBElement<String> outgestDestination;
-    @XmlElementRef(name = "RequestedForUser", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class)
+    @XmlElementRef(name = "RequestedForUser", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class, required = false)
     protected JAXBElement<String> requestedForUser;
-    @XmlElementRef(name = "SourceObjectDetail", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class)
+    @XmlElementRef(name = "SourceObjectDetail", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class, required = false)
     protected JAXBElement<String> sourceObjectDetail;
-    @XmlElementRef(name = "SourceObjectID", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class)
+    @XmlElementRef(name = "SourceObjectID", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class, required = false)
     protected JAXBElement<Integer> sourceObjectID;
-    @XmlElementRef(name = "SourceObjectType", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class)
+    @XmlElementRef(name = "SourceObjectType", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class, required = false)
     protected JAXBElement<String> sourceObjectType;
-    @XmlElementRef(name = "Status", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class)
+    @XmlElementRef(name = "Status", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class, required = false)
     protected JAXBElement<String> status;
-    @XmlElementRef(name = "TargetObjectDetail", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class)
+    @XmlElementRef(name = "TargetObjectDetail", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class, required = false)
     protected JAXBElement<String> targetObjectDetail;
-    @XmlElementRef(name = "Type", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class)
+    @XmlElementRef(name = "Type", namespace = "http://BSkyB.com.BSS.Contract.Traffic", type = JAXBElement.class, required = false)
     protected JAXBElement<String> type;
 
     /**
@@ -130,7 +130,7 @@ public class MAMRequest {
      *     
      */
     public void setCreatedByUser(JAXBElement<String> value) {
-        this.createdByUser = ((JAXBElement<String> ) value);
+        this.createdByUser = value;
     }
 
     /**
@@ -154,7 +154,7 @@ public class MAMRequest {
      *     
      */
     public void setDateCompleted(JAXBElement<XMLGregorianCalendar> value) {
-        this.dateCompleted = ((JAXBElement<XMLGregorianCalendar> ) value);
+        this.dateCompleted = value;
     }
 
     /**
@@ -178,7 +178,7 @@ public class MAMRequest {
      *     
      */
     public void setDateRequired(JAXBElement<XMLGregorianCalendar> value) {
-        this.dateRequired = ((JAXBElement<XMLGregorianCalendar> ) value);
+        this.dateRequired = value;
     }
 
     /**
@@ -202,7 +202,7 @@ public class MAMRequest {
      *     
      */
     public void setDateTimeAcceptedByMAM(JAXBElement<XMLGregorianCalendar> value) {
-        this.dateTimeAcceptedByMAM = ((JAXBElement<XMLGregorianCalendar> ) value);
+        this.dateTimeAcceptedByMAM = value;
     }
 
     /**
@@ -226,7 +226,7 @@ public class MAMRequest {
      *     
      */
     public void setDateTimeCreated(JAXBElement<XMLGregorianCalendar> value) {
-        this.dateTimeCreated = ((JAXBElement<XMLGregorianCalendar> ) value);
+        this.dateTimeCreated = value;
     }
 
     /**
@@ -250,7 +250,7 @@ public class MAMRequest {
      *     
      */
     public void setDeleted(JAXBElement<Boolean> value) {
-        this.deleted = ((JAXBElement<Boolean> ) value);
+        this.deleted = value;
     }
 
     /**
@@ -274,7 +274,7 @@ public class MAMRequest {
      *     
      */
     public void setFormat(JAXBElement<String> value) {
-        this.format = ((JAXBElement<String> ) value);
+        this.format = value;
     }
 
     /**
@@ -298,7 +298,7 @@ public class MAMRequest {
      *     
      */
     public void setGenericID(JAXBElement<Integer> value) {
-        this.genericID = ((JAXBElement<Integer> ) value);
+        this.genericID = value;
     }
 
     /**
@@ -322,7 +322,7 @@ public class MAMRequest {
      *     
      */
     public void setLevel(JAXBElement<String> value) {
-        this.level = ((JAXBElement<String> ) value);
+        this.level = value;
     }
 
     /**
@@ -346,7 +346,7 @@ public class MAMRequest {
      *     
      */
     public void setMAMRequestID(JAXBElement<Integer> value) {
-        this.mamRequestID = ((JAXBElement<Integer> ) value);
+        this.mamRequestID = value;
     }
 
     /**
@@ -370,7 +370,7 @@ public class MAMRequest {
      *     
      */
     public void setNoOfOutgestItems(JAXBElement<Integer> value) {
-        this.noOfOutgestItems = ((JAXBElement<Integer> ) value);
+        this.noOfOutgestItems = value;
     }
 
     /**
@@ -394,7 +394,7 @@ public class MAMRequest {
      *     
      */
     public void setOutgestDestination(JAXBElement<String> value) {
-        this.outgestDestination = ((JAXBElement<String> ) value);
+        this.outgestDestination = value;
     }
 
     /**
@@ -418,7 +418,7 @@ public class MAMRequest {
      *     
      */
     public void setRequestedForUser(JAXBElement<String> value) {
-        this.requestedForUser = ((JAXBElement<String> ) value);
+        this.requestedForUser = value;
     }
 
     /**
@@ -442,7 +442,7 @@ public class MAMRequest {
      *     
      */
     public void setSourceObjectDetail(JAXBElement<String> value) {
-        this.sourceObjectDetail = ((JAXBElement<String> ) value);
+        this.sourceObjectDetail = value;
     }
 
     /**
@@ -466,7 +466,7 @@ public class MAMRequest {
      *     
      */
     public void setSourceObjectID(JAXBElement<Integer> value) {
-        this.sourceObjectID = ((JAXBElement<Integer> ) value);
+        this.sourceObjectID = value;
     }
 
     /**
@@ -490,7 +490,7 @@ public class MAMRequest {
      *     
      */
     public void setSourceObjectType(JAXBElement<String> value) {
-        this.sourceObjectType = ((JAXBElement<String> ) value);
+        this.sourceObjectType = value;
     }
 
     /**
@@ -514,7 +514,7 @@ public class MAMRequest {
      *     
      */
     public void setStatus(JAXBElement<String> value) {
-        this.status = ((JAXBElement<String> ) value);
+        this.status = value;
     }
 
     /**
@@ -538,7 +538,7 @@ public class MAMRequest {
      *     
      */
     public void setTargetObjectDetail(JAXBElement<String> value) {
-        this.targetObjectDetail = ((JAXBElement<String> ) value);
+        this.targetObjectDetail = value;
     }
 
     /**
@@ -562,7 +562,7 @@ public class MAMRequest {
      *     
      */
     public void setType(JAXBElement<String> value) {
-        this.type = ((JAXBElement<String> ) value);
+        this.type = value;
     }
 
 }

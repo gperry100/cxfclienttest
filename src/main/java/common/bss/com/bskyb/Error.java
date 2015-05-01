@@ -35,9 +35,9 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class Error {
 
-    @XmlElementRef(name = "Code", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class)
+    @XmlElementRef(name = "Code", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class, required = false)
     protected JAXBElement<Integer> code;
-    @XmlElementRef(name = "Message", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class)
+    @XmlElementRef(name = "Message", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class, required = false)
     protected JAXBElement<String> message;
 
     /**
@@ -61,7 +61,7 @@ public class Error {
      *     
      */
     public void setCode(JAXBElement<Integer> value) {
-        this.code = ((JAXBElement<Integer> ) value);
+        this.code = value;
     }
 
     /**
@@ -85,7 +85,7 @@ public class Error {
      *     
      */
     public void setMessage(JAXBElement<String> value) {
-        this.message = ((JAXBElement<String> ) value);
+        this.message = value;
     }
 
 }

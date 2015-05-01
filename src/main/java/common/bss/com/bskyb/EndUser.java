@@ -37,11 +37,11 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class EndUser {
 
-    @XmlElementRef(name = "EndUserDomain", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class)
+    @XmlElementRef(name = "EndUserDomain", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class, required = false)
     protected JAXBElement<String> endUserDomain;
-    @XmlElementRef(name = "EndUserID", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class)
+    @XmlElementRef(name = "EndUserID", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class, required = false)
     protected JAXBElement<String> endUserID;
-    @XmlElementRef(name = "EndUserIPAddress", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class)
+    @XmlElementRef(name = "EndUserIPAddress", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class, required = false)
     protected JAXBElement<String> endUserIPAddress;
 
     /**
@@ -65,7 +65,7 @@ public class EndUser {
      *     
      */
     public void setEndUserDomain(JAXBElement<String> value) {
-        this.endUserDomain = ((JAXBElement<String> ) value);
+        this.endUserDomain = value;
     }
 
     /**
@@ -89,7 +89,7 @@ public class EndUser {
      *     
      */
     public void setEndUserID(JAXBElement<String> value) {
-        this.endUserID = ((JAXBElement<String> ) value);
+        this.endUserID = value;
     }
 
     /**
@@ -113,7 +113,7 @@ public class EndUser {
      *     
      */
     public void setEndUserIPAddress(JAXBElement<String> value) {
-        this.endUserIPAddress = ((JAXBElement<String> ) value);
+        this.endUserIPAddress = value;
     }
 
 }

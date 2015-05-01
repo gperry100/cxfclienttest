@@ -35,7 +35,7 @@ public class ParameterError
     extends BusinessError
 {
 
-    @XmlElementRef(name = "Parameters", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class)
+    @XmlElementRef(name = "Parameters", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class, required = false)
     protected JAXBElement<ArrayOfNameValue> parameters;
 
     /**
@@ -59,7 +59,7 @@ public class ParameterError
      *     
      */
     public void setParameters(JAXBElement<ArrayOfNameValue> value) {
-        this.parameters = ((JAXBElement<ArrayOfNameValue> ) value);
+        this.parameters = value;
     }
 
 }

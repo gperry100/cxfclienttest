@@ -35,17 +35,16 @@ import javax.xml.bind.annotation.XmlType;
     "source"
 })
 @XmlSeeAlso({
-    EntityError.class,
-    ParameterError.class
+    ParameterError.class,
+    EntityError.class
 })
 public class BusinessError {
 
-    @XmlElementRef(name = "Error", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class)
+    @XmlElementRef(name = "Error", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class, required = false)
     protected JAXBElement<Error> error;
-    @XmlElementRef(name = "Source", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class)
+    @XmlElementRef(name = "Source", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class, required = false)
     protected JAXBElement<String> source;
 
-    int x;
     /**
      * Gets the value of the error property.
      * 
@@ -67,7 +66,7 @@ public class BusinessError {
      *     
      */
     public void setError(JAXBElement<Error> value) {
-        this.error = ((JAXBElement<Error> ) value);
+        this.error = value;
     }
 
     /**
@@ -91,7 +90,7 @@ public class BusinessError {
      *     
      */
     public void setSource(JAXBElement<String> value) {
-        this.source = ((JAXBElement<String> ) value);
+        this.source = value;
     }
 
 }

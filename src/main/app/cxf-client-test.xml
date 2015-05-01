@@ -18,13 +18,17 @@ http://www.mulesoft.org/schema/mule/ee/data-mapper http://www.mulesoft.org/schem
 http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
 http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
 
-	<http:request-config name="HTTP_Request_Configuration"
-		host="chiiis61.bskyb.com" port="902" doc:name="HTTP Request Configuration" />
+	<!-- <http:request-config name="HTTP_Request_Configuration"
+		host="chiiis61.bskyb.com" port="902" doc:name="HTTP Request Configuration" /> -->
+		<http:request-config name="HTTP_Request_Configuration"
+		host="localhost" port="9191" doc:name="HTTP Request Configuration" />
 	<cxf:configuration name="CXF_Configuration"
 		enableMuleSoapHeaders="true" initializeStaticBusInstance="true"
 		doc:name="CXF Configuration" />
 	<mulexml:jaxb-context name="JAXB_Context"
 		packageNames="traffic.contract.bss.com.bskyb.request" doc:name="JAXB Context" />
+   
+ 	<ws:consumer-config name="Web_Service_Consumer" wsdlLocation="schema/MAMRequest.wsdl" service="MAMRequest" port="BasicHttpBinding_IRequest" serviceAddress="http://chiiis61.bskyb.com:902/MAMRequest.svc" doc:name="Web Service Consumer"/>
 
 	<flow name="cxf-client-testFlow">
 		<http:inbound-endpoint host="localhost" port="8881"
@@ -53,6 +57,32 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
 			<cxf:jaxb-databinding />
 		</cxf:jaxws-client>
 		<http:request config-ref="HTTP_Request_Configuration"
-			path="MAMRequest.svc" method="POST" doc:name="HTTP" />
+			path="mamrequest" method="POST" doc:name="HTTP" />
 	</flow>
+    <flow name="cxf-client-testFlow1">        
+ 		<http:inbound-endpoint host="localhost" port="8888"
+			path="wsconsumertest" exchange-pattern="request-response" doc:name="HTTP"/>
+			
+		<scripting:component doc:name="Script">
+			<scripting:script engine="Groovy"><![CDATA[
+            import traffic.contract.bss.com.bskyb.request.*
+            import javax.xml.bind.JAXB
+            
+			def get = new traffic.contract.bss.com.bskyb.request.ObjectFactory().createGet();
+			def arrayOfint = new com.microsoft.schemas._2003._10.serialization.arrays.ObjectFactory().createArrayOfint();
+			arrayOfint.getInt().add(5127944);
+			def arrayOfInts = new com.microsoft.schemas._2003._10.serialization.arrays.ObjectFactory().createArrayOfint(arrayOfint);
+			get.setMAMRequestID(arrayOfint);
+			
+			// need to return XML to ws:consumer
+			
+			def writer = new StringWriter()
+        	JAXB.marshal get, writer
+        	payload = writer.buffer.toString()
+
+			]]></scripting:script>
+		</scripting:component>
+      
+        <ws:consumer config-ref="Web_Service_Consumer" operation="Get" doc:name="Web Service Consumer" />
+    </flow>
 </mule>

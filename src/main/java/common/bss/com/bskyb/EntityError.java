@@ -39,11 +39,11 @@ public class EntityError
     extends BusinessError
 {
 
-    @XmlElementRef(name = "Attributes", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class)
+    @XmlElementRef(name = "Attributes", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class, required = false)
     protected JAXBElement<ArrayOfNameValue> attributes;
-    @XmlElementRef(name = "ObjectID", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class)
+    @XmlElementRef(name = "ObjectID", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class, required = false)
     protected JAXBElement<Integer> objectID;
-    @XmlElementRef(name = "ObjectType", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class)
+    @XmlElementRef(name = "ObjectType", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class, required = false)
     protected JAXBElement<String> objectType;
 
     /**
@@ -67,7 +67,7 @@ public class EntityError
      *     
      */
     public void setAttributes(JAXBElement<ArrayOfNameValue> value) {
-        this.attributes = ((JAXBElement<ArrayOfNameValue> ) value);
+        this.attributes = value;
     }
 
     /**
@@ -91,7 +91,7 @@ public class EntityError
      *     
      */
     public void setObjectID(JAXBElement<Integer> value) {
-        this.objectID = ((JAXBElement<Integer> ) value);
+        this.objectID = value;
     }
 
     /**
@@ -115,7 +115,7 @@ public class EntityError
      *     
      */
     public void setObjectType(JAXBElement<String> value) {
-        this.objectType = ((JAXBElement<String> ) value);
+        this.objectType = value;
     }
 
 }

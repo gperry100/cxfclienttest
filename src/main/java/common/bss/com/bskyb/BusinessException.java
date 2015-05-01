@@ -35,9 +35,9 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class BusinessException {
 
-    @XmlElementRef(name = "EntityErrors", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class)
+    @XmlElementRef(name = "EntityErrors", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class, required = false)
     protected JAXBElement<ArrayOfEntityError> entityErrors;
-    @XmlElementRef(name = "ParameterErrors", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class)
+    @XmlElementRef(name = "ParameterErrors", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class, required = false)
     protected JAXBElement<ArrayOfParameterError> parameterErrors;
 
     /**
@@ -61,7 +61,7 @@ public class BusinessException {
      *     
      */
     public void setEntityErrors(JAXBElement<ArrayOfEntityError> value) {
-        this.entityErrors = ((JAXBElement<ArrayOfEntityError> ) value);
+        this.entityErrors = value;
     }
 
     /**
@@ -85,7 +85,7 @@ public class BusinessException {
      *     
      */
     public void setParameterErrors(JAXBElement<ArrayOfParameterError> value) {
-        this.parameterErrors = ((JAXBElement<ArrayOfParameterError> ) value);
+        this.parameterErrors = value;
     }
 
 }

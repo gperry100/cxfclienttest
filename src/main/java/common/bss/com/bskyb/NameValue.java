@@ -35,9 +35,9 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class NameValue {
 
-    @XmlElementRef(name = "Name", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class)
+    @XmlElementRef(name = "Name", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class, required = false)
     protected JAXBElement<String> name;
-    @XmlElementRef(name = "Value", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class)
+    @XmlElementRef(name = "Value", namespace = "http://BSkyB.com.BSS.Common", type = JAXBElement.class, required = false)
     protected JAXBElement<Object> value;
 
     /**
@@ -61,7 +61,7 @@ public class NameValue {
      *     
      */
     public void setName(JAXBElement<String> value) {
-        this.name = ((JAXBElement<String> ) value);
+        this.name = value;
     }
 
     /**
@@ -85,7 +85,7 @@ public class NameValue {
      *     
      */
     public void setValue(JAXBElement<Object> value) {
-        this.value = ((JAXBElement<Object> ) value);
+        this.value = value;
     }
 
 }
