@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><Graph __version="3.5.0" author="perrygil" created="Thu Apr 30 16:15:54 BST 2015" description="JSON To Xml&lt;Get&gt;" guiVersion="3.4.4.P" id="1430485507836" licenseCode="Unlicensed" licenseType="Unknown" modified="Thu Apr 30 16:15:54 BST 2015" modifiedBy="perrygil" name="JSON_To_Xml_Get_" preview-file="${Project_Home}/src/main/resources/test.json" revision="1.0" showComponentDetails="false">
+<Global>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:Get" _dataStructure="OBJECT" _id="__id" _type="Output" id="e24c0a69-b990-478d-9aa8-ff57053b51ff">
+<Record fieldDelimiter="," name="Get" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="0" __sourcePath="{http://schemas.microsoft.com/2003/10/Serialization/Arrays=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:Get/ns0:MAMRequestID/ns1:int" containerType="list" label="ns1:int" name="ns1_int" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="1" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:Get/ns0:sourceObjectType" containerType="SINGLE" label="ns0:sourceObjectType" name="ns0_sourceObjectType" type="string"/>
+<Field __index="2" __sourcePath="{http://schemas.microsoft.com/2003/10/Serialization/Arrays=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:Get/ns0:sourceObjectID/ns1:int" containerType="list" label="ns1:int" name="ns1_int_1" type="integer"/>
+<Field __implementationClass="java.lang.String" __index="3" __sourcePath="{http://BSkyB.com.BSS.Common=ns2,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:Get/ns0:endUser/ns2:EndUserDomain" containerType="SINGLE" label="ns2:EndUserDomain" name="ns2_EndUserDomain" type="string"/>
+<Field __implementationClass="java.lang.String" __index="4" __sourcePath="{http://BSkyB.com.BSS.Common=ns2,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:Get/ns0:endUser/ns2:EndUserID" containerType="SINGLE" label="ns2:EndUserID" name="ns2_EndUserID" type="string"/>
+<Field __implementationClass="java.lang.String" __index="5" __sourcePath="{http://BSkyB.com.BSS.Common=ns2,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:Get/ns0:endUser/ns2:EndUserIPAddress" containerType="SINGLE" label="ns2:EndUserIPAddress" name="ns2_EndUserIPAddress" type="string"/>
+</Record>
+</Metadata>
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/object" _dataStructure="OBJECT" _id="__id" _type="Input" id="64e3662f-a337-4145-aef7-409486dfd849">
+<Record fieldDelimiter="," name="object" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
+<Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
+<Field __index="0" __sourcePath="{}/object/requestId" containerType="SINGLE" label="requestId" name="requestId" type="integer"/>
+</Record>
+</Metadata>
+<Dictionary>
+<Entry id="DictionaryEntry0" input="true" name="inputPayload" output="false" type="object"/>
+<Entry id="DictionaryEntry1" input="false" name="outputPayload" output="true" type="object"/>
+</Dictionary>
+</Global>
+<Phase number="0">
+<Node enabled="enabled" fileURL="dict:outputPayload" guiName="XML WRITER" guiX="900" guiY="20" id="EXT_XML_WRITER0" type="EXT_XML_WRITER">
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<clover:element clover:name="ns0:Get" xmlns:clover="http://www.cloveretl.com/ns/xmlmapping" xmlns:ns0="http://BSkyB.com.BSS.Contract.Traffic/Request" clover:inPort="0">
+  <clover:element clover:name="ns0:MAMRequestID">
+    <clover:element clover:name="ns1:int" xmlns:ns1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">$0.ns1_int</clover:element>
+  </clover:element>
+  <clover:element clover:name="ns0:sourceObjectType">$0.ns0_sourceObjectType</clover:element>
+  <clover:element clover:name="ns0:sourceObjectID">
+    <clover:element clover:name="ns1:int" xmlns:ns1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">$0.ns1_int_1</clover:element>
+  </clover:element>
+  <clover:element clover:name="ns0:endUser">
+    <clover:element clover:name="ns2:EndUserDomain" xmlns:ns2="http://BSkyB.com.BSS.Common">$0.ns2_EndUserDomain</clover:element>
+    <clover:element clover:name="ns2:EndUserID" xmlns:ns2="http://BSkyB.com.BSS.Common">$0.ns2_EndUserID</clover:element>
+    <clover:element clover:name="ns2:EndUserIPAddress" xmlns:ns2="http://BSkyB.com.BSS.Common">$0.ns2_EndUserIPAddress</clover:element>
+  </clover:element>
+</clover:element>]]></attr>
+<attr name="_data_format"><![CDATA[XML]]></attr>
+<attr name="__metadata"><![CDATA[true]]></attr>
+</Node>
+<Node enabled="enabled" guiName="Foreach 'object' -&gt; 'ns0:Get'" guiX="460" guiY="20" id="FOREACH_OBJECT_NS0_GET" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<attr name="melScript"><![CDATA[//MEL
+//START -> DO NOT REMOVE
+output.__id = input.__id;
+//END -> DO NOT REMOVE
+output.ns1_int = [input.requestId];]]></attr>
+</Node>
+<Node charset="UTF-8" enabled="enabled" fileURL="dict:inputPayload" guiName="JSON READER" guiX="20" guiY="20" id="JSON_READER0" type="JSON_READER">
+<attr name="__isJsonSchema"><![CDATA[false]]></attr>
+<attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Context xpath="/root">
+  <Context outPort="0" sequenceField="__id" xpath="object">
+    <Mapping cloverField="requestId" trim="true" xpath="requestId"/>
+  </Context>
+</Context>
+]]></attr>
+<attr name="_data_format"><![CDATA[JSON]]></attr>
+<attr name="jsonSchemaURL"><![CDATA[./src/main/resources/test.json]]></attr>
+</Node>
+<Edge debugMode="true" fromNode="FOREACH_OBJECT_NS0_GET:0" guiBendpoints="" id="Edge1" inPort="Port 0 (in)" metadata="e24c0a69-b990-478d-9aa8-ff57053b51ff" outPort="Port 0 (out)" toNode="EXT_XML_WRITER0:0"/>
+<Edge debugMode="true" fromNode="JSON_READER0:0" guiBendpoints="" id="Edge0" inPort="Port 0 (in)" metadata="64e3662f-a337-4145-aef7-409486dfd849" outPort="Port 0 (out)" toNode="FOREACH_OBJECT_NS0_GET:0"/>
+</Phase>
+</Graph>

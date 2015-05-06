@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?><Graph __version="3.5.0" author="perrygil" created="Thu Apr 30 16:15:54 BST 2015" description="Xml&lt;GetResponse&gt; To XML" guiVersion="3.4.4.P" id="1430473004222" licenseCode="Unlicensed" licenseType="Unknown" modified="Thu Apr 30 16:15:54 BST 2015" modifiedBy="perrygil" name="Xml_GetResponse__To_XML" revision="1.0" showComponentDetails="false">
+<?xml version="1.0" encoding="UTF-8"?><Graph __version="3.5.0" author="perrygil" created="Thu Apr 30 16:15:54 BST 2015" description="Xml&lt;GetResponse&gt; To XML" guiVersion="3.4.4.P" id="1430485620718" licenseCode="Unlicensed" licenseType="Unknown" modified="Thu Apr 30 16:15:54 BST 2015" modifiedBy="perrygil" name="Xml_GetResponse__To_XML" revision="1.0" showComponentDetails="false">
 <Global>
-<Metadata __index="0" __referenceCounter="1" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse" _dataStructure="OBJECT" _id="__id" _type="Input" id="7630e2d2-874e-4e50-884a-1141391aac0a">
+<Metadata __index="0" __referenceCounter="1" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse" _dataStructure="OBJECT" _id="__id" _type="Input" id="20895f64-30c8-4813-8878-73313bb65b49">
 <Record fieldDelimiter="," name="GetResponse" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
 <Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
 </Record>
 </Metadata>
-<Metadata __index="0" __referenceCounter="1" __sourcePath="{}/GetResponse" _dataStructure="OBJECT" _id="__id" _type="Output" id="8429afe8-0cc5-4a03-a0b3-0f45d5b89daf">
+<Metadata __filteredMetadata="false" __index="0" __referenceCounter="1" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse" _dataStructure="OBJECT" _id="__id" _type="Output" id="53f29cb5-6741-445f-acae-127532b92728">
 <Record fieldDelimiter="," name="GetResponse" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
 <Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
 </Record>
 </Metadata>
-<Metadata __index="0" __referenceCounter="2" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest" _dataStructure="SINGLE_DIMENSIONAL_COLLECTION" _id="__id" _metadataParentId="7630e2d2-874e-4e50-884a-1141391aac0a" _parent_id="__parent_id" _type="Input" id="b82bed2b-824f-43ab-b685-8d8aa132431e">
+<Metadata __index="0" __referenceCounter="2" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest" _dataStructure="SINGLE_DIMENSIONAL_COLLECTION" _id="__id" _metadataParentId="20895f64-30c8-4813-8878-73313bb65b49" _parent_id="__parent_id" _type="Input" id="efb4d7b6-a0c1-4ace-b6be-3c3b73af7a43">
 <Record fieldDelimiter="," name="MAMRequest" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
 <Field __artificialType="_parent_id" __systemManaged="true" name="__parent_id" type="string"/>
 <Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
@@ -35,29 +35,29 @@
 <Field __implementationClass="java.lang.String" __index="18" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest/ns1:Type" containerType="SINGLE" label="ns1:Type" name="ns1_Type" type="string"/>
 </Record>
 </Metadata>
-<Metadata __index="0" __referenceCounter="2" __sourcePath="{}/GetResponse/GetResult/MAMRequest" _dataStructure="SINGLE_DIMENSIONAL_COLLECTION" _id="__id" _metadataParentId="8429afe8-0cc5-4a03-a0b3-0f45d5b89daf" _parent_id="__parent_id" _type="Output" id="47cddf3e-01cf-4e06-bbae-b27b55d92b1a">
+<Metadata __index="0" __referenceCounter="2" __schemaType="{http://BSkyB.com.BSS.Contract.Traffic}MAMRequest" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest" _dataStructure="SINGLE_DIMENSIONAL_COLLECTION" _id="__id" _metadataParentId="53f29cb5-6741-445f-acae-127532b92728" _parent_id="__parent_id" _type="Output" id="d8bd1ce1-6668-449c-b7db-a8f32c63da52">
 <Record fieldDelimiter="," name="MAMRequest" recordDelimiter="\n\\|\r\n\\|\r" type="delimited">
 <Field __artificialType="_parent_id" __systemManaged="true" name="__parent_id" type="string"/>
 <Field __artificialType="_id" __systemManaged="true" name="__id" type="string"/>
-<Field __index="0" __sourcePath="{}/GetResponse/GetResult/MAMRequest/CreatedByUser" containerType="SINGLE" label="CreatedByUser" name="CreatedByUser" type="string"/>
-<Field __dmType="Calendar" __index="1" __sourcePath="{}/GetResponse/GetResult/MAMRequest/DateCompleted" containerType="SINGLE" label="DateCompleted" name="DateCompleted" type="string"/>
-<Field __dmType="Calendar" __index="2" __sourcePath="{}/GetResponse/GetResult/MAMRequest/DateRequired" containerType="SINGLE" label="DateRequired" name="DateRequired" type="string"/>
-<Field __dmType="Calendar" __index="3" __sourcePath="{}/GetResponse/GetResult/MAMRequest/DateTimeAcceptedByMAM" containerType="SINGLE" label="DateTimeAcceptedByMAM" name="DateTimeAcceptedByMAM" type="string"/>
-<Field __dmType="Calendar" __index="4" __sourcePath="{}/GetResponse/GetResult/MAMRequest/DateTimeCreated" containerType="SINGLE" label="DateTimeCreated" name="DateTimeCreated" type="string"/>
-<Field __index="5" __sourcePath="{}/GetResponse/GetResult/MAMRequest/Deleted" containerType="SINGLE" label="Deleted" name="Deleted" type="boolean"/>
-<Field __index="6" __sourcePath="{}/GetResponse/GetResult/MAMRequest/Format" containerType="SINGLE" label="Format" name="Format" type="string"/>
-<Field __index="7" __sourcePath="{}/GetResponse/GetResult/MAMRequest/GenericID" containerType="SINGLE" label="GenericID" name="GenericID" type="integer"/>
-<Field __index="8" __sourcePath="{}/GetResponse/GetResult/MAMRequest/Level" containerType="SINGLE" label="Level" name="Level" type="string"/>
-<Field __index="9" __sourcePath="{}/GetResponse/GetResult/MAMRequest/MAMRequestID" containerType="SINGLE" label="MAMRequestID" name="MAMRequestID" type="integer"/>
-<Field __index="10" __sourcePath="{}/GetResponse/GetResult/MAMRequest/NoOfOutgestItems" containerType="SINGLE" label="NoOfOutgestItems" name="NoOfOutgestItems" type="integer"/>
-<Field __index="11" __sourcePath="{}/GetResponse/GetResult/MAMRequest/OutgestDestination" containerType="SINGLE" label="OutgestDestination" name="OutgestDestination" type="string"/>
-<Field __index="12" __sourcePath="{}/GetResponse/GetResult/MAMRequest/RequestedForUser" containerType="SINGLE" label="RequestedForUser" name="RequestedForUser" type="string"/>
-<Field __index="13" __sourcePath="{}/GetResponse/GetResult/MAMRequest/SourceObjectDetail" containerType="SINGLE" label="SourceObjectDetail" name="SourceObjectDetail" type="string"/>
-<Field __index="14" __sourcePath="{}/GetResponse/GetResult/MAMRequest/SourceObjectID" containerType="SINGLE" label="SourceObjectID" name="SourceObjectID" type="integer"/>
-<Field __index="15" __sourcePath="{}/GetResponse/GetResult/MAMRequest/SourceObjectType" containerType="SINGLE" label="SourceObjectType" name="SourceObjectType" type="string"/>
-<Field __index="16" __sourcePath="{}/GetResponse/GetResult/MAMRequest/Status" containerType="SINGLE" label="Status" name="Status" type="string"/>
-<Field __index="17" __sourcePath="{}/GetResponse/GetResult/MAMRequest/TargetObjectDetail" containerType="SINGLE" label="TargetObjectDetail" name="TargetObjectDetail" type="string"/>
-<Field __index="18" __sourcePath="{}/GetResponse/GetResult/MAMRequest/Type" containerType="SINGLE" label="Type" name="Type" type="string"/>
+<Field __index="0" __schemaType="{http://BSkyB.com.BSS.Contract.Traffic}MAMRequest" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest/ns1:CreatedByUser" containerType="SINGLE" label="CreatedByUser" name="CreatedByUser" type="string"/>
+<Field __dmType="Calendar" __index="1" __schemaType="{http://BSkyB.com.BSS.Contract.Traffic}MAMRequest" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest/ns1:DateCompleted" containerType="SINGLE" label="DateCompleted" name="DateCompleted" type="string"/>
+<Field __dmType="Calendar" __index="2" __schemaType="{http://BSkyB.com.BSS.Contract.Traffic}MAMRequest" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest/ns1:DateRequired" containerType="SINGLE" label="DateRequired" name="DateRequired" type="string"/>
+<Field __dmType="Calendar" __index="3" __schemaType="{http://BSkyB.com.BSS.Contract.Traffic}MAMRequest" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest/ns1:DateTimeAcceptedByMAM" containerType="SINGLE" label="DateTimeAcceptedByMAM" name="DateTimeAcceptedByMAM" type="string"/>
+<Field __dmType="Calendar" __index="4" __schemaType="{http://BSkyB.com.BSS.Contract.Traffic}MAMRequest" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest/ns1:DateTimeCreated" containerType="SINGLE" label="DateTimeCreated" name="DateTimeCreated" type="string"/>
+<Field __index="5" __schemaType="{http://BSkyB.com.BSS.Contract.Traffic}MAMRequest" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest/ns1:Deleted" containerType="SINGLE" label="Deleted" name="Deleted" type="boolean"/>
+<Field __index="6" __schemaType="{http://BSkyB.com.BSS.Contract.Traffic}MAMRequest" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest/ns1:Format" containerType="SINGLE" label="Format" name="Format" type="string"/>
+<Field __index="7" __schemaType="{http://BSkyB.com.BSS.Contract.Traffic}MAMRequest" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest/ns1:GenericID" containerType="SINGLE" label="GenericID" name="GenericID" type="integer"/>
+<Field __index="8" __schemaType="{http://BSkyB.com.BSS.Contract.Traffic}MAMRequest" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest/ns1:Level" containerType="SINGLE" label="Level" name="Level" type="string"/>
+<Field __index="9" __schemaType="{http://BSkyB.com.BSS.Contract.Traffic}MAMRequest" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest/ns1:MAMRequestID" containerType="SINGLE" label="MAMRequestID" name="MAMRequestID" type="integer"/>
+<Field __index="10" __schemaType="{http://BSkyB.com.BSS.Contract.Traffic}MAMRequest" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest/ns1:NoOfOutgestItems" containerType="SINGLE" label="NoOfOutgestItems" name="NoOfOutgestItems" type="integer"/>
+<Field __index="11" __schemaType="{http://BSkyB.com.BSS.Contract.Traffic}MAMRequest" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest/ns1:OutgestDestination" containerType="SINGLE" label="OutgestDestination" name="OutgestDestination" type="string"/>
+<Field __index="12" __schemaType="{http://BSkyB.com.BSS.Contract.Traffic}MAMRequest" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest/ns1:RequestedForUser" containerType="SINGLE" label="RequestedForUser" name="RequestedForUser" type="string"/>
+<Field __index="13" __schemaType="{http://BSkyB.com.BSS.Contract.Traffic}MAMRequest" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest/ns1:SourceObjectDetail" containerType="SINGLE" label="SourceObjectDetail" name="SourceObjectDetail" type="string"/>
+<Field __index="14" __schemaType="{http://BSkyB.com.BSS.Contract.Traffic}MAMRequest" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest/ns1:SourceObjectID" containerType="SINGLE" label="SourceObjectID" name="SourceObjectID" type="integer"/>
+<Field __index="15" __schemaType="{http://BSkyB.com.BSS.Contract.Traffic}MAMRequest" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest/ns1:SourceObjectType" containerType="SINGLE" label="SourceObjectType" name="SourceObjectType" type="string"/>
+<Field __index="16" __schemaType="{http://BSkyB.com.BSS.Contract.Traffic}MAMRequest" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest/ns1:Status" containerType="SINGLE" label="Status" name="Status" type="string"/>
+<Field __index="17" __schemaType="{http://BSkyB.com.BSS.Contract.Traffic}MAMRequest" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest/ns1:TargetObjectDetail" containerType="SINGLE" label="TargetObjectDetail" name="TargetObjectDetail" type="string"/>
+<Field __index="18" __schemaType="{http://BSkyB.com.BSS.Contract.Traffic}MAMRequest" __sourcePath="{http://BSkyB.com.BSS.Contract.Traffic=ns1,http://BSkyB.com.BSS.Contract.Traffic/Request=ns0}/ns0:GetResponse/ns0:GetResult/ns1:MAMRequest/ns1:Type" containerType="SINGLE" label="Type" name="Type" type="string"/>
 </Record>
 </Metadata>
 <Dictionary>
@@ -66,64 +66,65 @@
 </Dictionary>
 </Global>
 <Phase number="0">
-<Node cacheInMemory="true" charset="UTF-8" enabled="enabled" fileURL="dict:outputPayload" guiName="XML WRITER" guiX="900" guiY="20" id="EXT_XML_WRITER0" type="EXT_XML_WRITER">
+<Node cacheInMemory="true" charset="UTF-8" enabled="enabled" fileURL="dict:outputPayload" guiName="XML WRITER" guiX="900" guiY="20" id="EXT_XML_WRITER0" type="EXT_XML_WRITER" xmlSchemaURL="./src/main/resources/schema/MAMRequest.xsd">
 <attr name="mapping"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
-<GetResponse xmlns:clover="http://www.cloveretl.com/ns/xmlmapping" clover:inPort="0">
-  <GetResult>
-    <MAMRequest clover:inPort="1" clover:key="__parent_id" clover:parentKey="__id">
-      <CreatedByUser>$1.CreatedByUser</CreatedByUser>
-      <DateCompleted>$1.DateCompleted</DateCompleted>
-      <DateRequired>$1.DateRequired</DateRequired>
-      <DateTimeAcceptedByMAM>$1.DateTimeAcceptedByMAM</DateTimeAcceptedByMAM>
-      <DateTimeCreated>$1.DateTimeCreated</DateTimeCreated>
-      <Deleted>$1.Deleted</Deleted>
-      <Format>$1.Format</Format>
-      <GenericID>$1.GenericID</GenericID>
-      <Level>$1.Level</Level>
-      <MAMRequestID>$1.MAMRequestID</MAMRequestID>
-      <NoOfOutgestItems>$1.NoOfOutgestItems</NoOfOutgestItems>
-      <OutgestDestination>$1.OutgestDestination</OutgestDestination>
-      <RequestedForUser>$1.RequestedForUser</RequestedForUser>
-      <SourceObjectDetail>$1.SourceObjectDetail</SourceObjectDetail>
-      <SourceObjectID>$1.SourceObjectID</SourceObjectID>
-      <SourceObjectType>$1.SourceObjectType</SourceObjectType>
-      <Status>$1.Status</Status>
-      <TargetObjectDetail>$1.TargetObjectDetail</TargetObjectDetail>
-      <Type>$1.Type</Type>
-    </MAMRequest>
-    <MAMRequest clover:inPort="2" clover:key="__parent_id" clover:parentKey="__id">
-      <CreatedByUser>$2.CreatedByUser</CreatedByUser>
-      <DateCompleted>$2.DateCompleted</DateCompleted>
-      <DateRequired>$2.DateRequired</DateRequired>
-      <DateTimeAcceptedByMAM>$2.DateTimeAcceptedByMAM</DateTimeAcceptedByMAM>
-      <DateTimeCreated>$2.DateTimeCreated</DateTimeCreated>
-      <Deleted>$2.Deleted</Deleted>
-      <Format>$2.Format</Format>
-      <GenericID>$2.GenericID</GenericID>
-      <Level>$2.Level</Level>
-      <MAMRequestID>$2.MAMRequestID</MAMRequestID>
-      <NoOfOutgestItems>$2.NoOfOutgestItems</NoOfOutgestItems>
-      <OutgestDestination>$2.OutgestDestination</OutgestDestination>
-      <RequestedForUser>$2.RequestedForUser</RequestedForUser>
-      <SourceObjectDetail>$2.SourceObjectDetail</SourceObjectDetail>
-      <SourceObjectID>$2.SourceObjectID</SourceObjectID>
-      <SourceObjectType>$2.SourceObjectType</SourceObjectType>
-      <Status>$2.Status</Status>
-      <TargetObjectDetail>$2.TargetObjectDetail</TargetObjectDetail>
-      <Type>$2.Type</Type>
-    </MAMRequest>
-  </GetResult>
-</GetResponse>]]></attr>
+<clover:element clover:name="ns0:GetResponse" xmlns:clover="http://www.cloveretl.com/ns/xmlmapping" xmlns:ns0="http://BSkyB.com.BSS.Contract.Traffic/Request" clover:inPort="0">
+  <clover:element clover:name="ns0:GetResult">
+    <clover:element clover:name="ns1:MAMRequest" xmlns:ns1="http://BSkyB.com.BSS.Contract.Traffic" clover:inPort="1" clover:key="__parent_id" clover:parentKey="__id">
+      <clover:element clover:name="ns1:CreatedByUser">$1.CreatedByUser</clover:element>
+      <clover:element clover:name="ns1:DateCompleted">$1.DateCompleted</clover:element>
+      <clover:element clover:name="ns1:DateRequired">$1.DateRequired</clover:element>
+      <clover:element clover:name="ns1:DateTimeAcceptedByMAM">$1.DateTimeAcceptedByMAM</clover:element>
+      <clover:element clover:name="ns1:DateTimeCreated">$1.DateTimeCreated</clover:element>
+      <clover:element clover:name="ns1:Deleted">$1.Deleted</clover:element>
+      <clover:element clover:name="ns1:Format">$1.Format</clover:element>
+      <clover:element clover:name="ns1:GenericID">$1.GenericID</clover:element>
+      <clover:element clover:name="ns1:Level">$1.Level</clover:element>
+      <clover:element clover:name="ns1:MAMRequestID">$1.MAMRequestID</clover:element>
+      <clover:element clover:name="ns1:NoOfOutgestItems">$1.NoOfOutgestItems</clover:element>
+      <clover:element clover:name="ns1:OutgestDestination">$1.OutgestDestination</clover:element>
+      <clover:element clover:name="ns1:RequestedForUser">$1.RequestedForUser</clover:element>
+      <clover:element clover:name="ns1:SourceObjectDetail">$1.SourceObjectDetail</clover:element>
+      <clover:element clover:name="ns1:SourceObjectID">$1.SourceObjectID</clover:element>
+      <clover:element clover:name="ns1:SourceObjectType">$1.SourceObjectType</clover:element>
+      <clover:element clover:name="ns1:Status">$1.Status</clover:element>
+      <clover:element clover:name="ns1:TargetObjectDetail">$1.TargetObjectDetail</clover:element>
+      <clover:element clover:name="ns1:Type">$1.Type</clover:element>
+    </clover:element>
+    <clover:element clover:name="ns1:MAMRequest" xmlns:ns1="http://BSkyB.com.BSS.Contract.Traffic" clover:inPort="2" clover:key="__parent_id" clover:parentKey="__id">
+      <clover:element clover:name="ns1:CreatedByUser">$2.CreatedByUser</clover:element>
+      <clover:element clover:name="ns1:DateCompleted">$2.DateCompleted</clover:element>
+      <clover:element clover:name="ns1:DateRequired">$2.DateRequired</clover:element>
+      <clover:element clover:name="ns1:DateTimeAcceptedByMAM">$2.DateTimeAcceptedByMAM</clover:element>
+      <clover:element clover:name="ns1:DateTimeCreated">$2.DateTimeCreated</clover:element>
+      <clover:element clover:name="ns1:Deleted">$2.Deleted</clover:element>
+      <clover:element clover:name="ns1:Format">$2.Format</clover:element>
+      <clover:element clover:name="ns1:GenericID">$2.GenericID</clover:element>
+      <clover:element clover:name="ns1:Level">$2.Level</clover:element>
+      <clover:element clover:name="ns1:MAMRequestID">$2.MAMRequestID</clover:element>
+      <clover:element clover:name="ns1:NoOfOutgestItems">$2.NoOfOutgestItems</clover:element>
+      <clover:element clover:name="ns1:OutgestDestination">$2.OutgestDestination</clover:element>
+      <clover:element clover:name="ns1:RequestedForUser">$2.RequestedForUser</clover:element>
+      <clover:element clover:name="ns1:SourceObjectDetail">$2.SourceObjectDetail</clover:element>
+      <clover:element clover:name="ns1:SourceObjectID">$2.SourceObjectID</clover:element>
+      <clover:element clover:name="ns1:SourceObjectType">$2.SourceObjectType</clover:element>
+      <clover:element clover:name="ns1:Status">$2.Status</clover:element>
+      <clover:element clover:name="ns1:TargetObjectDetail">$2.TargetObjectDetail</clover:element>
+      <clover:element clover:name="ns1:Type">$2.Type</clover:element>
+    </clover:element>
+  </clover:element>
+</clover:element>]]></attr>
 <attr name="_data_format"><![CDATA[XML]]></attr>
+<attr name="__rootGlobalElementName"><![CDATA[{http://BSkyB.com.BSS.Contract.Traffic/Request}GetResponse]]></attr>
 </Node>
-<Node enabled="enabled" guiName="Foreach 'ns0:GetResponse' -&gt; 'GetResponse'" guiX="460" guiY="20" id="FOREACH_NS0_GET_RESPONSE_GET_RESPONSE" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<Node enabled="enabled" guiName="Foreach 'ns0:GetResponse' -&gt; 'ns0:GetResponse'" guiX="460" guiY="20" id="FOREACH_NS0_GET_RESPONSE_NS0_GET_RESPONSE" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
 <attr name="melScript"><![CDATA[//MEL
 //START -> DO NOT REMOVE
 output.__id = input.__id;
 //END -> DO NOT REMOVE
 ]]></attr>
 </Node>
-<Node enabled="enabled" guiName="Foreach 'ns1:MAMRequest' -&gt; 'MAMRequest'" guiX="460" guiY="120" id="FOREACH_NS1_MAMREQUEST_MAMREQUEST" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<Node enabled="enabled" guiName="Foreach 'ns1:MAMRequest' -&gt; 'ns1:MAMRequest'" guiX="460" guiY="120" id="FOREACH_NS1_MAMREQUEST_NS1_MAMREQUEST" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
 <attr name="melScript"><![CDATA[//MEL
 //START -> DO NOT REMOVE
 output.__id = input.__id;
@@ -131,7 +132,7 @@ output.__parent_id = input.__parent_id;
 //END -> DO NOT REMOVE
 ]]></attr>
 </Node>
-<Node enabled="enabled" guiName="Foreach 'ns1:MAMRequest' -&gt; 'MAMRequest'" guiX="460" guiY="220" id="FOREACH_NS1_MAMREQUEST_MAMREQUEST1" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
+<Node enabled="enabled" guiName="Foreach 'ns1:MAMRequest' -&gt; 'ns1:MAMRequest'" guiX="460" guiY="220" id="FOREACH_NS1_MAMREQUEST_NS1_MAMREQUEST1" transformClass="com.mulesoft.datamapper.transform.MelRecordTransform" type="REFORMAT">
 <attr name="melScript"><![CDATA[//MEL
 //START -> DO NOT REMOVE
 output.__id = input.__id;
@@ -169,12 +170,12 @@ output.GenericID = input.ns1_GenericID;]]></attr>
 <attr name="_data_format"><![CDATA[XML]]></attr>
 <attr name="__metadata"><![CDATA[true]]></attr>
 </Node>
-<Edge debugMode="true" fromNode="FOREACH_NS0_GET_RESPONSE_GET_RESPONSE:0" guiBendpoints="" id="Edge1" inPort="Port 0 (in)" metadata="8429afe8-0cc5-4a03-a0b3-0f45d5b89daf" outPort="Port 0 (out)" toNode="EXT_XML_WRITER0:0"/>
-<Edge debugMode="true" fromNode="FOREACH_NS1_MAMREQUEST_MAMREQUEST:0" guiBendpoints="" id="Edge3" inPort="Port 1 (in)" metadata="47cddf3e-01cf-4e06-bbae-b27b55d92b1a" outPort="Port 0 (out)" toNode="EXT_XML_WRITER0:1"/>
-<Edge debugMode="true" fromNode="FOREACH_NS1_MAMREQUEST_MAMREQUEST1:0" guiBendpoints="" id="Edge6" inPort="Port 2 (in)" metadata="47cddf3e-01cf-4e06-bbae-b27b55d92b1a" outPort="Port 0 (out)" toNode="EXT_XML_WRITER0:2"/>
-<Edge debugMode="true" fromNode="SIMPLE_COPY0:0" guiBendpoints="" id="Edge2" inPort="Port 0 (in)" metadata="b82bed2b-824f-43ab-b685-8d8aa132431e" outPort="Port 0 (out)" toNode="FOREACH_NS1_MAMREQUEST_MAMREQUEST:0"/>
-<Edge debugMode="true" fromNode="SIMPLE_COPY0:1" guiBendpoints="" id="Edge5" inPort="Port 0 (in)" metadata="b82bed2b-824f-43ab-b685-8d8aa132431e" outPort="Port 1 (out)" toNode="FOREACH_NS1_MAMREQUEST_MAMREQUEST1:0"/>
-<Edge debugMode="true" fromNode="XML_READER0:0" guiBendpoints="" id="Edge0" inPort="Port 0 (in)" metadata="7630e2d2-874e-4e50-884a-1141391aac0a" outPort="Port 0 (out)" toNode="FOREACH_NS0_GET_RESPONSE_GET_RESPONSE:0"/>
-<Edge debugMode="true" fromNode="XML_READER0:1" guiBendpoints="" id="Edge4" inPort="Port 0 (in)" metadata="b82bed2b-824f-43ab-b685-8d8aa132431e" outPort="Port 1 (out)" toNode="SIMPLE_COPY0:0"/>
+<Edge debugMode="true" fromNode="FOREACH_NS0_GET_RESPONSE_NS0_GET_RESPONSE:0" guiBendpoints="" id="Edge1" inPort="Port 0 (in)" metadata="53f29cb5-6741-445f-acae-127532b92728" outPort="Port 0 (out)" toNode="EXT_XML_WRITER0:0"/>
+<Edge debugMode="true" fromNode="FOREACH_NS1_MAMREQUEST_NS1_MAMREQUEST:0" guiBendpoints="" id="Edge3" inPort="Port 1 (in)" metadata="d8bd1ce1-6668-449c-b7db-a8f32c63da52" outPort="Port 0 (out)" toNode="EXT_XML_WRITER0:1"/>
+<Edge debugMode="true" fromNode="FOREACH_NS1_MAMREQUEST_NS1_MAMREQUEST1:0" guiBendpoints="" id="Edge6" inPort="Port 2 (in)" metadata="d8bd1ce1-6668-449c-b7db-a8f32c63da52" outPort="Port 0 (out)" toNode="EXT_XML_WRITER0:2"/>
+<Edge debugMode="true" fromNode="SIMPLE_COPY0:0" guiBendpoints="" id="Edge2" inPort="Port 0 (in)" metadata="efb4d7b6-a0c1-4ace-b6be-3c3b73af7a43" outPort="Port 0 (out)" toNode="FOREACH_NS1_MAMREQUEST_NS1_MAMREQUEST:0"/>
+<Edge debugMode="true" fromNode="SIMPLE_COPY0:1" guiBendpoints="" id="Edge5" inPort="Port 0 (in)" metadata="efb4d7b6-a0c1-4ace-b6be-3c3b73af7a43" outPort="Port 1 (out)" toNode="FOREACH_NS1_MAMREQUEST_NS1_MAMREQUEST1:0"/>
+<Edge debugMode="true" fromNode="XML_READER0:0" guiBendpoints="" id="Edge0" inPort="Port 0 (in)" metadata="20895f64-30c8-4813-8878-73313bb65b49" outPort="Port 0 (out)" toNode="FOREACH_NS0_GET_RESPONSE_NS0_GET_RESPONSE:0"/>
+<Edge debugMode="true" fromNode="XML_READER0:1" guiBendpoints="" id="Edge4" inPort="Port 0 (in)" metadata="efb4d7b6-a0c1-4ace-b6be-3c3b73af7a43" outPort="Port 1 (out)" toNode="SIMPLE_COPY0:0"/>
 </Phase>
 </Graph>
