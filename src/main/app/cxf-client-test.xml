@@ -22,7 +22,7 @@ http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/m
 http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd">
 
 	<http:request-config name="Live_HTTP_Request_Configuration"
-		host="chiiis61.bskyb.com" port="902" doc:name="HTTP Request Configuration" />
+		host="chiiis61.bskyb.com" port="902" doc:name="HTTP Request Configuration"  />
 	<http:request-config name="HTTP_Request_Configuration"
 		host="localhost" port="9191" doc:name="HTTP Request Configuration" />
 	<cxf:configuration name="CXF_Configuration"
@@ -38,17 +38,14 @@ http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/cu
 			uri="http://BSkyB.com.BSS.Contract.Traffic" />
 	</mulexml:namespace-manager>
 
-
-
 	<ws:consumer-config name="Web_Service_Consumer"
 		wsdlLocation="schema/MAMRequest.wsdl" service="MAMRequest"
 		port="BasicHttpBinding_IRequest" serviceAddress="http://chiiis61.bskyb.com:902/MAMRequest.svc"
 		doc:name="Web Service Consumer" />
 	<data-mapper:config name="JSON_To_Xml_Get_"
 		transformationGraphPath="json_to_xml_get_.grf" doc:name="JSON_To_Xml_Get_" />
-	<data-mapper:config name="Xml_GetResponse__To_XML"
-		transformationGraphPath="xml_getresponse__to_xml.grf" doc:name="Xml_GetResponse__To_XML" />
-	<flow name="cxf-client-testFlow">
+    <data-mapper:config name="Xml_GetResponse__To_JSON" transformationGraphPath="xml_getresponse__to_json.grf" doc:name="Xml_GetResponse__To_JSON"/>
+    <flow name="cxf-client-testFlow">
 		<http:inbound-endpoint host="localhost" port="8881"
 			path="cxftest" exchange-pattern="request-response" doc:name="HTTP" />
 		<json:json-to-object-transformer
@@ -68,7 +65,20 @@ http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/cu
 			payload = get;
 			]]></scripting:script>
 		</scripting:component>
-
+        <response>
+        	<!-- <message-properties-transformer >
+        	<add-message-property key="Content-Type" value="application/json"/>
+        	</message-properties-transformer> -->
+            <scripting:component doc:name="Set JSON response">
+                <scripting:script engine="Groovy"><![CDATA[
+	            def response = """{
+	            	"purchaseId": ${message.getInvocationProperty('purchaseId').toString()}
+	            }""" as String
+	            return response
+				]]></scripting:script>
+            </scripting:component>
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property" />
+        </response>
 		<cxf:jaxws-client doc:name="CXF"
 			enableMuleSoapHeaders="false"
 			clientClass="traffic.wcf.bss.com.bskyb.mamrequest.MAMRequest" port="BasicHttpBinding_IRequest"
@@ -77,8 +87,12 @@ http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/cu
 		</cxf:jaxws-client>
 		<http:request config-ref="HTTP_Request_Configuration"
 			path="mamrequest" method="POST" doc:name="HTTP" />
+		<byte-array-to-string-transformer doc:name="Byte Array to String"/>
+		<set-variable
+			value="#[xpath3('//req:GetResponse/req:GetResult/tra:MAMRequest/tra:GenericID')]"
+			variableName="purchaseId" doc:name="store purchase ID" />	
 	</flow>
-	<flow name="ws-consumer-testFlow">
+    <flow name="ws-consumer-testFlow">
 		<http:inbound-endpoint host="localhost" port="8888"
 			path="wsconsumertest" exchange-pattern="request-response" doc:name="HTTP" />
 
@@ -109,13 +123,12 @@ http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/cu
 
 		<ws:consumer config-ref="Web_Service_Consumer" operation="Get"
 			doc:name="Web Service Consumer" />
-		<mulexml:dom-to-xml-transformer
-			doc:name="DOM to XML" />
+		<mulexml:dom-to-xml-transformer doc:name="DOM to XML"/>
 		<set-variable
 			value="#[xpath3('//req:GetResponse/req:GetResult/tra:MAMRequest/tra:GenericID')]"
 			variableName="purchaseId" doc:name="store purchase ID" />
 
-		<scripting:component doc:name="Set XML Request Payload">
+		<scripting:component doc:name="Set JSON response">
 			<scripting:script engine="Groovy"><![CDATA[
             def response = """{
             "purchaseId": ${message.getInvocationProperty('purchaseId').toString()}
@@ -124,8 +137,7 @@ http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/cu
 			]]></scripting:script>
 		</scripting:component>
 	</flow>
-
-	<flow name="ws-consumer-DM-testFlow">
+    <flow name="ws-consumer-DM-testFlow">
 		<http:inbound-endpoint host="localhost" port="8888"
 			path="wsconsumertestwithmapper" exchange-pattern="request-response"
 			doc:name="HTTP" />
@@ -133,8 +145,7 @@ http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/cu
 			doc:name="JSON To Xml&lt;Get&gt;" />
 		<ws:consumer config-ref="Web_Service_Consumer" operation="Get"
 			doc:name="Web Service Consumer" />
-		<data-mapper:transform config-ref="Xml_GetResponse__To_XML"
- 			doc:name="Xml&lt;GetResponse&gt; To XML" /> 			
+        <data-mapper:transform config-ref="Xml_GetResponse__To_JSON" doc:name="Xml&lt;GetResponse&gt; To JSON"/>
 	</flow>
 
 	<byte-array-to-string-transformer
@@ -169,7 +180,7 @@ http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/cu
 		<http:request config-ref="Live_HTTP_Request_Configuration"
 			path="MAMRequest.svc" method="POST" doc:name="HTTP" />
 	</flow>
-	<flow name="cxf-client-proxy">
+	<flow name="cxf-client-proxy-split">
 		<http:inbound-endpoint host="localhost" port="8888"
 			path="cxfproxy" exchange-pattern="request-response" doc:name="HTTP" />
 
@@ -186,7 +197,7 @@ http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/cu
 			variableName="purchaseId" doc:name="store purchase ID" />
 
 
-		<scripting:component doc:name="Set XML Request Payload">
+		<scripting:component doc:name="Set JSON response">
 			<scripting:script engine="Groovy"><![CDATA[
             def response = """{
             	"purchaseId": ${message.getInvocationProperty('purchaseId').toString()}
@@ -194,5 +205,55 @@ http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/cu
             return response
 			]]></scripting:script>
 		</scripting:component>
+	</flow>
+	
+	<flow name="cxf-client-proxy">
+		<http:inbound-endpoint host="localhost" port="8888"
+			path="cxfclient" exchange-pattern="request-response" doc:name="HTTP" />
+
+		<json:json-to-object-transformer
+			doc:name="JSON to Object" />
+		<set-property propertyName="SOAPAction"
+			value="http://BSkyB.com.BSS.Contract.Traffic/Request/IRequest/Get"
+			doc:name="SetSoapAction" />
+		<scripting:component doc:name="Set XML Request Payload">
+			<scripting:script engine="Groovy"><![CDATA[
+            def mypayload = """
+            <req:Get xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:req="http://BSkyB.com.BSS.Contract.Traffic/Request" xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:bsk="http://BSkyB.com.BSS.Common">
+			   <req:MAMRequestID>
+			      <arr:int>${payload.requestId.intValue}</arr:int>
+			   </req:MAMRequestID>
+			   <req:endUser>
+			      <bsk:EndUserID>IP</bsk:EndUserID>
+			      <bsk:EndUserIPAddress>127.0.0.1</bsk:EndUserIPAddress>
+			   </req:endUser>
+			</req:Get>"""
+			return mypayload as String;
+			]]></scripting:script>
+		</scripting:component>
+        <response>
+            <scripting:component doc:name="Set JSON response">
+                <scripting:script engine="Groovy"><![CDATA[
+            def response = """{
+            	"purchaseId": ${message.getInvocationProperty('purchaseId').toString()}
+            }""" as String
+            return response
+			]]></scripting:script>
+            </scripting:component>
+        </response>
+     
+
+		<cxf:proxy-client payload="body" doc:name="CXF Client Proxy" enableMuleSoapHeaders="false"/>
+    
+		<http:request config-ref="Live_HTTP_Request_Configuration"
+			path="MAMRequest.svc" method="POST" doc:name="HTTP" />
+		
+		<byte-array-to-string-transformer doc:name="Byte Array to String"/>
+      
+		<set-variable
+			value="#[xpath3('//req:GetResponse/req:GetResult/tra:MAMRequest/tra:GenericID')]"
+			variableName="purchaseId" doc:name="store purchase ID" />
+	
+		
 	</flow>
 </mule>
